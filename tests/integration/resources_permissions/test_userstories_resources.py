@@ -143,6 +143,8 @@ def test_user_story_update(client, data):
             user_story_data["subject"] = "test"
             user_story_data = json.dumps(user_story_data)
             results = helper_test_http_method(client, 'put', public_url, user_story_data, users)
+
+            print("***********", user_story_data)
             assert results == [401, 403, 403, 200, 200]
 
             user_story_data = UserStorySerializer(data.private_user_story1).data
