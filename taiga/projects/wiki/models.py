@@ -69,6 +69,7 @@ class WikiLink(models.Model):
                             verbose_name=_("href"))
     order = models.PositiveSmallIntegerField(default=1, null=False, blank=False,
                                              verbose_name=_("order"))
+    parent = models.ForeignKey('self', null=True, blank=True, verbose_name=_("parent"))
 
     class Meta:
         verbose_name = "wiki link"
